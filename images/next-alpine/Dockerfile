@@ -2,11 +2,9 @@
 ARG NEXT_VERSION=12.2.0
 ARG NODE_VERSION=16
 FROM node:${NODE_VERSION}-alpine AS base-alpine
-EXPOSE 1337
+EXPOSE 3000
 
 FROM base-alpine
-
-ARG STRAPI_VERSION=latest
 
 RUN yarn global add next@${NEXT_VERSION}
 

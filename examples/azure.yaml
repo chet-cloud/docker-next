@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+  strapi:
+    image: cc861010/head:nextjs-12.2.0
+    environment:
+      NODE_ENV: production   #or development
+    ports:
+      - '80:3000'
+    volumes:
+      - ${WEBAPP_STORAGE_HOME}/site/wwwroot/:/srv/app/
+      - ${WEBAPP_STORAGE_HOME}/../../../dev/null:/srv/app/node_modules
+      - ${WEBAPP_STORAGE_HOME}/../../../dev/null:/srv/app/.next
+      - ${WEBAPP_STORAGE_HOME}/../../../dev/null:/srv/app/.swc
+      - ${WEBAPP_STORAGE_HOME}/../../../dev/null:/srv/app/out
+    restart: always

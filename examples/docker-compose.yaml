@@ -1,0 +1,21 @@
+version: '3.3'
+services:
+  strapi:
+    image: cc861010/head:nextjs-12.2.0
+    environment:
+      NODE_ENV: development  #or production 
+    ports:
+      - '80:3000'
+    volumes:
+      - ./yarn.lock:/srv/app/yarn.lock
+      - ./src:/srv/app/src
+      - ./public:/srv/app/public
+      - ./.prettierrc.js:/srv/app/.prettierrc.js
+      - ./.prettierignore:/srv/app/.prettierignore
+      - ./plugins:/srv/app/plugins
+      - ./package.json:/srv/app/package.json
+      - ./next.config.js:/srv/app/next.config.js
+      - ./jsconfig.json:/srv/app/jsconfig.json
+      - ./.eslintignore:/srv/app/.eslintignore
+      - ./.eslintrc.js:/srv/app/.eslintrc.js
+    restart: always
