@@ -7,9 +7,15 @@ services:
     ports:
       - '80:3000'
     volumes:
-      - ${WEBAPP_STORAGE_HOME}/site/wwwroot/:/srv/app/
-      - ${WEBAPP_STORAGE_HOME}/../../../dev/null:/srv/app/node_modules
-      - ${WEBAPP_STORAGE_HOME}/../../../dev/null:/srv/app/.next
-      - ${WEBAPP_STORAGE_HOME}/../../../dev/null:/srv/app/.swc
-      - ${WEBAPP_STORAGE_HOME}/../../../dev/null:/srv/app/out
+      - ${WEBAPP_STORAGE_HOME}/site/wwwroot/yarn.lock:/srv/app/yarn.lock
+      - ${WEBAPP_STORAGE_HOME}/site/wwwroot/src:/srv/app/src
+      - ${WEBAPP_STORAGE_HOME}/site/wwwroot/public:/srv/app/public
+      - ${WEBAPP_STORAGE_HOME}/site/wwwroot/.prettierrc.js:/srv/app/.prettierrc.js
+      - ${WEBAPP_STORAGE_HOME}/site/wwwroot/.prettierignore:/srv/app/.prettierignore
+      - ${WEBAPP_STORAGE_HOME}/site/wwwroot/plugins:/srv/app/plugins
+      - ${WEBAPP_STORAGE_HOME}/site/wwwroot/package.json:/srv/app/package.json
+      - ${WEBAPP_STORAGE_HOME}/site/wwwroot/next.config.js:/srv/app/next.config.js
+      - ${WEBAPP_STORAGE_HOME}/site/wwwroot/jsconfig.json:/srv/app/jsconfig.json
+      - ${WEBAPP_STORAGE_HOME}/site/wwwroot/.eslintignore:/srv/app/.eslintignore
+      - ${WEBAPP_STORAGE_HOME}/site/wwwroot/.eslintrc.js:/srv/app/.eslintrc.js
     restart: always
